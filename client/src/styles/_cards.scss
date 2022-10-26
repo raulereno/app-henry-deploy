@@ -1,0 +1,61 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card {
+        border-radius: 1rem;
+        background-color: $buttons-color;
+        width: 18rem;
+        height: 25rem;
+        margin: 0.6rem;
+
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            border-radius: 1rem 1rem 0 0;
+            width: 100%;
+            height: 56%;
+        }
+
+        a {
+            text-decoration: none;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                h4 {
+                    text-align: center;
+                    background-color: $principa-color;
+                    color: $letter-color;
+                    font-size: 1.5rem;
+                    font-weight: bolder;
+                    margin: 3px 0 5px 0;
+                    width: 100%;
+                }
+
+                h5 {
+                    width: 90%;
+                    align-self: center;
+                    text-align: center;
+                    color: $letter-color;
+                    background-color: $principa-color;
+                    margin-top: 4px;
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                }
+
+                p {
+                    color: $letter-color;
+                    text-align: center;
+                }
+            }
+        }
+
+
+    }
+}

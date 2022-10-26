@@ -1,0 +1,17 @@
+.container_loader {
+    font-size: 3rem;
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    .loader {
+        background-image: url("./../imgs/loanding.gif");
+        align-self: center;
+        background-repeat: no-repeat;
+        width: 25rem;
+        height: 20rem;
+        margin: 0.5rem;
+    }
+}

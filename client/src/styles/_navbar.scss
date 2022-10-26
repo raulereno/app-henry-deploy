@@ -1,0 +1,67 @@
+.container_navBar{
+    display: flex;
+    background: rgb(238, 238, 238);
+    background: linear-gradient(0deg, rgba(207, 207, 207, 0.464) 0%,rgba(139, 139, 139, 0.544) 50%, rgba(72, 72, 72, 0.755) 100% );
+    justify-content: space-between;
+    align-items: center;    
+    border-bottom: 2px solid $buttons-color;
+    width: 100%;
+    height: 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    h1{
+        margin: 0 0 0 1rem;
+        font-size: 1.3rem;
+    }
+    .socialMedias{
+        display: flex;
+        
+        .linkedin{
+            margin-right: 1rem;
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+        .github{
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+        .linkedin, .github{
+            transition: all 0.3s;
+
+            &:hover{
+                fill: $buttons-color;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+    .navBar{
+        button{
+            background-color: $buttons-color;
+            border: 0;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 0.8rem;
+            margin: 0.5rem;
+            width: 7.5rem;
+            height: 2rem;
+            transition: all 0.2s;
+            &:hover{
+                background-color: $principa-color;
+                color: $buttons-color;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+        .active{
+            button{
+                background-color: $principa-color;
+                border: 1px solid $buttons-color;
+                color: $background-color;
+                transform: scale(1.07);
+                font-weight: 500;
+            }
+        }
+    }
+}

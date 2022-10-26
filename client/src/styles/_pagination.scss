@@ -1,0 +1,50 @@
+.paginado{
+ 
+    ul{
+        display: flex;
+        align-items: center;
+        li{
+            list-style: none;
+            
+            button{
+                border: 0;
+                margin: 0 2px;
+                background-color: $buttons-color;
+                color: $secondary-color;
+                font-size: 1rem;
+                padding: 0.5rem;
+                border-radius: 20%;
+                width: 2rem;
+                &:hover{
+                    font-weight: 600;
+                    background-color: $principa-color;
+                    color: $buttons-color;
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
+            }
+            
+            
+        
+        }
+        .pagination_arrows{
+            margin-top: 4px;
+            svg{
+   
+                background-color: $buttons-color;
+                border-radius: 20%;
+                fill: $secondary-color;
+                padding: 3px;
+                width: 2rem;
+                height: 2rem;
+                &:hover{
+                    background-color: $principa-color;
+                    fill: $buttons-color;
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+}

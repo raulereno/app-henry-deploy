@@ -1,0 +1,19 @@
+.detailDog{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+    img{
+        width: 30rem;
+    }
+    div{
+        background-color: rgb(34, 40, 49);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        h2{
+            color: #EEEEEE;
+            align-self: center;
+        }
+    }
+}

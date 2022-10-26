@@ -1,0 +1,87 @@
+.container_form {
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url("./../imgs/foto_form.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 86vh;
+    form {
+        background-color: #00acb5ad;
+        width: 30%;
+        height: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0;
+        padding: 2rem;
+        input {
+            margin: 0.4rem;
+            width: 10rem;
+            height: 1.7rem;
+            text-align: center;
+        }
+
+        select {
+            width: 10rem;
+            height: 1.7rem;
+        }
+
+        button {
+            width: 5rem;
+        }
+        .input_num{
+            width: 3rem;
+        }
+        .errorInput{
+            border:1px solid red;
+        }
+        .errorsText{
+            color: rgb(164, 0, 0);
+            font-size: 0.8rem;
+        }
+        .input_life-span{
+            width: 4;
+        }
+        .deleteTemp{
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        .container_selectedTemps {
+            display: flex;
+            flex-wrap: wrap;
+
+            button {
+                margin: 1px;
+                width:auto;
+                border: 0;
+                background-color: $secondary-color;
+                display: flex;
+                align-content: center;
+
+                .selectedTemp {
+                    padding: 6px;
+                    color: white;
+                    font-weight: 300;
+                    border-radius: 1rem;
+                    margin: 0;
+
+
+                    font-size: 1rem;
+                    background-color: $secondary-color;
+
+                }
+            }
+
+        }
+    }
+    .preview{
+        width: 50%;
+        height: 40%;
+        background-color: #00acb5e0;
+        display: flex;
+        .img_preview{
+            width: 40%;
+            height: 100%;
+        }
+    }
+}

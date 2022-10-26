@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { allDogs, someDog, createDog } = require("../controllers/dogs");
+const { allDogs, createDog } = require("../controllers/dogs");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -14,19 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:breed", async (req, res) => {
-  const { breed } = req.params;
-
-  try {
-    const dog = await someDog(breed);
-    res.status(200).send(dog);
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
-});
-
 router.post("/", async (req, res) => {
-  //
   try {
     const { name, height, weight } = req.body;
     if (!name || !height || !weight) throw "Falta informacion de la raza";
