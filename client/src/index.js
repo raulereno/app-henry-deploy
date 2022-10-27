@@ -8,8 +8,8 @@ import App from "./App";
 import store from "./store/index";
 import dotenv from "dotenv";
 dotenv.config();
-
-axios.defaults.baseURL = "http://localhost:3001";
+//link deploy api = https://app-henry-deploy.herokuapp.com
+axios.defaults.baseURL = "https://app-henry-deploy.herokuapp.com";
 
 ReactDOM.render(
   <Provider store={store}>
