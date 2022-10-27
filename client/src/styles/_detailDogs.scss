@@ -2,15 +2,19 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    
+    margin-top: 2rem;
+    width: 90%;
     img{
-        width: 30rem;
+        width: 25rem;
+        height: 20rem;
     }
     div{
-        background-color: rgb(34, 40, 49);
+        background-color: $buttons-color;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        color: #EEEEEE;
+        padding: 2rem;
         h2{
             color: #EEEEEE;
             align-self: center;

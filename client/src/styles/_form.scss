@@ -5,15 +5,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 86vh;
+    height: 85vh;
     form {
         background-color: #00acb5ad;
-        width: 30%;
-        height: 60%;
+        width: 35%;
+        height: 75%;
         display: flex;
-        flex-wrap: wrap;
-        margin-top: 0;
-        padding: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 1rem;
         input {
             margin: 0.4rem;
             width: 10rem;
@@ -27,8 +29,9 @@
         }
 
         button {
-            width: 5rem;
+            width: 5rem;  
         }
+        
         .input_num{
             width: 3rem;
         }
@@ -49,15 +52,30 @@
         .container_selectedTemps {
             display: flex;
             flex-wrap: wrap;
-
+            width: 100%;
+            margin-top: 0.2rem;
             button {
                 margin: 1px;
                 width:auto;
                 border: 0;
-                background-color: $secondary-color;
+                background-color: rgba(57, 62, 70, 0.628);
                 display: flex;
                 align-content: center;
-
+                border-radius: 5px;
+                justify-content: center;
+                padding-left: 2px;
+                transition: all 0.3s;
+                &:hover{
+                    background-color: $background-color;
+                    transform: scale(1.05);
+                    .selectedTemp{
+                        color: black;
+                    }
+                }
+                img{
+                    align-self: center;
+                    
+                }
                 .selectedTemp {
                     padding: 6px;
                     color: white;
@@ -67,11 +85,18 @@
 
 
                     font-size: 1rem;
-                    background-color: $secondary-color;
 
                 }
             }
 
+        }
+        .form_buttons{
+            align-self: flex-end;
+            justify-self: flex-end;
+            display: flex;
+            justify-content: flex-end;
+        
+      
         }
     }
     .preview{
@@ -79,6 +104,7 @@
         height: 40%;
         background-color: #00acb5e0;
         display: flex;
+        margin-top: 1rem;
         .img_preview{
             width: 40%;
             height: 100%;

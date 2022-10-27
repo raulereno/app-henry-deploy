@@ -8,20 +8,17 @@ const DetailsDogs = ({ match }) => {
   const dispatch = useDispatch();
   const param = match.params.breed;
   const dog = useSelector((state) => state.dog);
-
   useEffect(() => {
     dispatch(getDog(param));
 
     return function cleanup() {
-      //dispatch de la funcion clean
       dispatch(cleanDog());
     };
   }, [dispatch, param]);
-  console.log(dog);
   return (
     <>
       <NavBar />
-      {dog && (
+      {Object.keys(dog).length !== 0 ? (
         <div className="detailDog">
           <img src={dog.image} alt="" />
           <div>
@@ -31,16 +28,23 @@ const DetailsDogs = ({ match }) => {
               <span>{dog.temperament}</span>
             </p>
             <p>
-              Altura: <span>{dog.height}</span>
+              Altura: <span>{dog.height} cm</span>
             </p>
             <p>
-              Peso: <span>{dog.weight}</span>
+              Peso: <span>{dog.weight} kg</span>
             </p>
             <p>
-              Esperanza de vida: <span>{dog.life_span}</span>
+              Esperanza de vida:{" "}
+              {dog.life_span?.includes("years") ? (
+                <span>{dog.life_span}</span>
+              ) : (
+                <span>{dog.life_span} years</span>
+              )}
             </p>
           </div>
         </div>
+      ) : (
+        <Loader />
       )}
     </>
   );

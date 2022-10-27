@@ -3,7 +3,6 @@ import {
   GET_DOGS,
   GET_DOG,
   GET_TEMPS,
-  CREATED_DOG,
   SEARCH_DOGS,
   FILTER_DOGS_BY_CREATION,
   FILTER_DOGS_BY_LETTER,
@@ -16,7 +15,7 @@ export function getDogs() {
   return async function (dispatch) {
     try {
       setTimeout(async () => {
-        return axios.get("http://localhost:3001/dogs").then((response) => {
+        return axios.get("/dogs").then((response) => {
           dispatch({ type: GET_DOGS, payload: response.data });
         });
       }, 2000);
@@ -37,11 +36,9 @@ export function getDog(breed) {
 export function getTempes() {
   return async function (dispatch) {
     try {
-      return axios
-        .get("http://localhost:3001/temperaments")
-        .then((response) => {
-          dispatch({ type: GET_TEMPS, payload: response.data });
-        });
+      return axios.get("/temperaments").then((response) => {
+        dispatch({ type: GET_TEMPS, payload: response.data });
+      });
     } catch (error) {
       console.log(error.message);
     }
@@ -52,7 +49,7 @@ export function createDog(data) {
   return async function (dispatch) {
     try {
       return axios
-        .post(`http://localhost:3001/dogs`, data)
+        .post(`/dogs`, data)
         .then((response) => {})
         .catch((err) => console.log(err));
     } catch (error) {

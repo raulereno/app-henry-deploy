@@ -86,6 +86,7 @@ const NewDog = () => {
       dispatch(createDog(formatFormToSend(form)));
       alert("Raza creada correctamente");
       dispatch(getDogs());
+      clean();
     }
   };
 
@@ -105,96 +106,133 @@ const NewDog = () => {
       <NavBar />
       <div className="container_form">
         <form action="post" onSubmit={(e) => handleSubmit(e)}>
-          <div>
-            <label htmlFor="name">Nombre de la raza:</label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={changeHandler}
-              placeholder="Pithuahua"
-              className={errors.name ? "errorInput" : ""}
-            />
-            {errors.name ? <p className="errorsText">{errors.name}</p> : ""}
-          </div>
-          <div>
-            <label htmlFor="height">Altura:</label>
-            <input
-              type="text"
-              name="height_min"
-              value={form.height_min}
-              onChange={changeHandler}
-              placeholder="Min"
-              className={`${"input_num"} ${errors.height ? "errorInput" : ""}`}
-            />
-            -
-            <input
-              type="text"
-              name="height_max"
-              id=""
-              placeholder="Max"
-              onChange={changeHandler}
-              value={form.height_max}
-              className={`${"input_num"} ${errors.height ? "errorInput" : ""}`}
-            />
-            cm
-            {errors.height ? <p className="errorsText">{errors.height}</p> : ""}
-          </div>
-          <div>
-            <label htmlFor="weight">Peso</label>
-            <input
-              type="text"
-              name="weight_min"
-              value={form.weight_min}
-              onChange={changeHandler}
-              placeholder="Min"
-              className={`${"input_num"} ${errors.weight ? "errorInput" : ""}`}
-            />
-            -
-            <input
-              type="text"
-              name="weight_max"
-              id=""
-              placeholder="Max"
-              value={form.weight_max}
-              onChange={changeHandler}
-              className={`${"input_num"} ${errors.weight ? "errorInput" : ""}`}
-            />
-            kg
-            {errors.weight ? <p className="errorsText">{errors.weight}</p> : ""}
-          </div>
-
-          <div>
-            <label htmlFor="life_span">Esperanza de vida:</label>
-            <input
-              type="text"
-              name="life_span"
-              value={form.life_span}
-              onChange={changeHandler}
-              placeholder="10 - 15"
-              className={`${"input_life-span"} ${
-                errors.life_span ? "errorInput" : ""
-              }`}
-            />
-            {errors.life_span ? (
-              <p className="errorsText">{errors.life_span}</p>
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            <label htmlFor="image">Url img</label>
-            <input
-              type="url"
-              name="image"
-              value={form.image}
-              onChange={changeHandler}
-              className={errors.image ? "errorInput" : ""}
-            />
-            {errors.image ? <p className="errorsText">{errors.image}</p> : ""}
-          </div>
-          <div>
-            <p>Temperamento</p>
+          <div className="inputs">
+            <div>
+              <label htmlFor="name">Nombre de la raza:</label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={changeHandler}
+                placeholder="Pithuahua"
+                className={errors.name ? "errorInput" : ""}
+              />
+              {errors.name ? <p className="errorsText">{errors.name}</p> : ""}
+            </div>
+            <div>
+              <label htmlFor="height">Altura:</label>
+              <input
+                type="text"
+                name="height_min"
+                value={form.height_min}
+                onChange={changeHandler}
+                placeholder="Min"
+                className={`${"input_num"} ${
+                  errors.height ? "errorInput" : ""
+                }`}
+              />
+              -
+              <input
+                type="text"
+                name="height_max"
+                id=""
+                placeholder="Max"
+                onChange={changeHandler}
+                value={form.height_max}
+                className={`${"input_num"} ${
+                  errors.height ? "errorInput" : ""
+                }`}
+              />
+              cm
+              {errors.height ? (
+                <p className="errorsText">{errors.height}</p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div>
+              <label htmlFor="weight">Peso:</label>
+              <input
+                type="text"
+                name="weight_min"
+                value={form.weight_min}
+                onChange={changeHandler}
+                placeholder="Min"
+                className={`${"input_num"} ${
+                  errors.weight ? "errorInput" : ""
+                }`}
+              />
+              -
+              <input
+                type="text"
+                name="weight_max"
+                id=""
+                placeholder="Max"
+                value={form.weight_max}
+                onChange={changeHandler}
+                className={`${"input_num"} ${
+                  errors.weight ? "errorInput" : ""
+                }`}
+              />
+              kg
+              {errors.weight ? (
+                <p className="errorsText">{errors.weight}</p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div>
+              <label htmlFor="life_span">Esperanza de vida:</label>
+              <input
+                type="text"
+                name="life_span"
+                value={form.life_span}
+                onChange={changeHandler}
+                placeholder="10 - 15"
+                className={`${"input_life-span"} ${
+                  errors.life_span ? "errorInput" : ""
+                }`}
+              />
+              {errors.life_span ? (
+                <p className="errorsText">{errors.life_span}</p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div>
+              <label htmlFor="image">Url img</label>
+              <input
+                type="url"
+                name="image"
+                value={form.image}
+                onChange={changeHandler}
+                className={errors.image ? "errorInput" : ""}
+              />
+              {errors.image ? <p className="errorsText">{errors.image}</p> : ""}
+            </div>
+            <div>
+              <p>Temperamento</p>
+              <select
+                name="temperaments"
+                id=""
+                onChange={changeHandler}
+                className={errors.temperaments ? "errorInput" : ""}
+              >
+                {tempes &&
+                  tempes.map((temp) => {
+                    return (
+                      <option key={temp.id} value={temp.name}>
+                        {temp.name}
+                      </option>
+                    );
+                  })}
+              </select>
+              {errors.temperaments ? (
+                <p className="errorsText">{errors.temperaments}</p>
+              ) : (
+                ""
+              )}
+            </div>
             <div className="container_selectedTemps">
               {form.temperaments &&
                 form.temperaments?.map((temp) => {
@@ -209,28 +247,9 @@ const NewDog = () => {
                   );
                 })}
             </div>
-            <select
-              name="temperaments"
-              id=""
-              onChange={changeHandler}
-              className={errors.temperaments ? "errorInput" : ""}
-            >
-              {tempes &&
-                tempes.map((temp) => {
-                  return (
-                    <option key={temp.id} value={temp.name}>
-                      {temp.name}
-                    </option>
-                  );
-                })}
-            </select>
-            {errors.temperaments ? (
-              <p className="errorsText">{errors.temperaments}</p>
-            ) : (
-              ""
-            )}
           </div>
-          <div>
+
+          <div className="form_buttons">
             <button
               type="reset"
               onClick={() => {
