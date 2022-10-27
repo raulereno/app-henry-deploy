@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 
 const Cards = ({ dogs }) => {
   const notFound = useSelector((state) => state.notFound);
+
   if (notFound) {
     return <h2>Raza no encontrada</h2>;
   }

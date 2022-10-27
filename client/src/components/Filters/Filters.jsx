@@ -14,6 +14,13 @@ const Filters = ({ paginado, setRefresh }) => {
   const tempes = useSelector((state) => state.tempes);
   const [selectedTemps, setSelectedTemps] = useState([]);
 
+  const [filters, setFilters] = useState({
+    createdIn: "all",
+    ordenatedByLetter: "",
+    ordenatedByWeight: "",
+    tempes: "",
+  });
+
   useEffect(() => {
     dispatch(getTempes());
   }, [dispatch]);
@@ -45,6 +52,7 @@ const Filters = ({ paginado, setRefresh }) => {
     }
     setRefresh(value);
     paginado(1);
+    setFilters({ ...filters, [name]: value });
 
     if (name === "tempes" && value !== "all") {
       setSelectedTemps([...selectedTemps, value]);
@@ -52,10 +60,15 @@ const Filters = ({ paginado, setRefresh }) => {
       setSelectedTemps([]);
     }
   };
-
   const refresh = () => {
-    setSelectedTemps([]);
     dispatch(getDogs());
+    setSelectedTemps([]);
+    setFilters({
+      createdIn: "all",
+      ordenatedByLetter: "",
+      ordenatedByWeight: "",
+      tempes: "",
+    });
   };
   return (
     <div className="container_filters">
@@ -67,6 +80,7 @@ const Filters = ({ paginado, setRefresh }) => {
             name="ordenatedByLetter"
             id="ordenatedByLetter"
             onChange={handlerChange}
+            value={filters.ordenatedByLetter}
           >
             <option>A-Z</option>
             <option>Z-A</option>
@@ -79,6 +93,7 @@ const Filters = ({ paginado, setRefresh }) => {
             name="ordenatedByWeight"
             id="ordenatedByWeight"
             onChange={handlerChange}
+            value={filters.ordenatedByWeight}
           >
             <option>-</option>
             <option value={"heavys"}>Mas pesados</option>
@@ -87,7 +102,12 @@ const Filters = ({ paginado, setRefresh }) => {
         </div>
         <div>
           <p>Creación</p>
-          <select name="createdIn" id="createdIn" onChange={handlerChange}>
+          <select
+            name="createdIn"
+            id="createdIn"
+            onChange={handlerChange}
+            value={filters.createdIn}
+          >
             <option value="all">Todos</option>
             <option value="dataBase">Base de Datos</option>
             <option value="API">API</option>
@@ -100,7 +120,12 @@ const Filters = ({ paginado, setRefresh }) => {
           selectedTemps?.map((e) => {
             return <span key={e}>{e}</span>;
           })}
-        <select name="tempes" id="tempes" onChange={handlerChange}>
+        <select
+          name="tempes"
+          id="tempes"
+          onChange={handlerChange}
+          value={filters.tempes}
+        >
           <option defaultValue="">Temperamentos</option>
           <option value="all">Todos</option>
           {tempes &&

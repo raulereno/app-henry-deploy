@@ -62,6 +62,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         dogs: payload,
+        notFound: false,
       };
     case GET_DOG:
       let find = state.dogs.find((e) => e.name === payload);
@@ -129,10 +130,16 @@ const reducer = (state = initialState, { type, payload }) => {
       let result3 = [];
 
       result3 = state.dogs.filter((e) => e.temperament?.includes(payload));
-
+      if (result3.length === 0) {
+        return {
+          ...state,
+          notFound: true,
+        };
+      }
       return {
         ...state,
         dogs: result3,
+        notFound: false,
       };
     case FILTER_DOGS_BY_WEIGHT:
       let result4 = [];
