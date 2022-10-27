@@ -1,3 +1,20 @@
+.buttonBack{
+    width: 3rem;
+    height: 3rem;
+    background-color: $buttons-color;
+    border: 0;
+    margin: 0.8rem;
+    padding: 6px;
+    border-radius: 100%;
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+        background-color: $principa-color;
+        svg{
+            fill: white;
+        }
+    }
+}
 .detailDog{
     display: flex;
     justify-content: center;
