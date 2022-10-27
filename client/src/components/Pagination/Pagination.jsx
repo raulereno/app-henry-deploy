@@ -15,8 +15,6 @@ const Pagination = (props) => {
     return null;
   }
 
-  //POR SI QUIERO DEHABILITAR LA FLECHA
-  //let lastPage = paginationRange[paginationRange?.length - 1];
   return (
     <nav className="paginado">
       <ul>

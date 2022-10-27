@@ -53,7 +53,7 @@ export function createDog(data) {
     try {
       return axios
         .post(`http://localhost:3001/dogs`, data)
-        .then((response) => dispatch({ type: CREATED_DOG, payload: data }))
+        .then((response) => {})
         .catch((err) => console.log(err));
     } catch (error) {
       console.log(error.messagey);
@@ -78,6 +78,7 @@ export function filterDogsByLetter(option) {
   };
 }
 export function filterDogsByTemps(option) {
+  //dispatch(filterDogsByTemps(value))
   return async function (dispatch) {
     return dispatch({ type: FILTER_DOGS_BY_TEMPER, payload: option });
   };

@@ -85,7 +85,6 @@ const reducer = (state = initialState, { type, payload }) => {
         e.name.toLowerCase().includes(payload.toLowerCase())
       );
       if (findDogs.length === 0) {
-        console.log("entro");
         return {
           ...state,
           notFound: true,

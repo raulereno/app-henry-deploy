@@ -14,6 +14,7 @@ export const usePagination = ({
   currentPage,
 }) => {
   const paginationRange = useMemo(() => {
+    console.log(currentPage);
     const totalPageCount = Math.ceil(dogs / dogsPerPage);
 
     const totalPageNumbers = siblingCount + 5;
@@ -36,8 +37,8 @@ export const usePagination = ({
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
       let leftItemCount = 3 + 2 * siblingCount;
+      console.log(range(1, leftItemCount));
       let leftRange = range(1, leftItemCount);
-
       return [...leftRange, DOST, totalPageCount];
     }
 

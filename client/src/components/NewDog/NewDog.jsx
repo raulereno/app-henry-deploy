@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createDog, getTempes } from "../../actions";
+import { createDog, getDogs, getTempes } from "../../actions";
 import NavBar from "../NavBar/NavBar";
 import { formatFormToSend, validate, validateForm } from "./validate";
 import dogPaw from "./dogPaw.svg";
@@ -85,6 +85,7 @@ const NewDog = () => {
     } else {
       dispatch(createDog(formatFormToSend(form)));
       alert("Raza creada correctamente");
+      dispatch(getDogs());
     }
   };
 
