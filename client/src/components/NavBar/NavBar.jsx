@@ -36,6 +36,7 @@ const NavBar = () => {
 
       <nav className="navBar">
         <NavLink
+          exact
           to={"/dogs"}
           className={(isActive) =>
             "nav-link" + (!isActive ? " unselected" : "")

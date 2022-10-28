@@ -53,7 +53,7 @@ export function createDog(data) {
         .then((response) => {})
         .catch((err) => console.log(err));
     } catch (error) {
-      console.log(error.messagey);
+      console.log(error.message);
     }
   };
 }

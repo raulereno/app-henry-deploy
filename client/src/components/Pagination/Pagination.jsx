@@ -3,7 +3,7 @@ import { usePagination, DOST } from "./usePagination";
 
 const Pagination = (props) => {
   const { dogsPerPage, dogs, paginado, currentPage, siblingCount = 1 } = props;
-
+  console.log(currentPage);
   const paginationRange = usePagination({
     currentPage,
     dogsPerPage,
@@ -40,7 +40,13 @@ const Pagination = (props) => {
             }
             return (
               <li key={number}>
-                <button onClick={() => paginado(number)}>{number}</button>
+                <button
+                  id={number}
+                  onClick={() => paginado(number)}
+                  className={currentPage === number ? "currentPage" : ""}
+                >
+                  {number}
+                </button>
               </li>
             );
           })}

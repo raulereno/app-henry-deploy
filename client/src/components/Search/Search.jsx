@@ -8,19 +8,22 @@ const Search = ({ paginado }) => {
   const dispatch = useDispatch();
 
   const eventHandler = (event) => {
+    setValue(event.target.value);
+  };
+
+  const handlerSubmit = (event) => {
     event.preventDefault();
     dispatch(searchDogs(value));
-    document.getElementById("form_searchDog").reset();
-
+    setValue("");
     paginado(1);
   };
 
   return (
-    <form onSubmit={eventHandler} id="form_searchDog">
+    <form onSubmit={handlerSubmit} id="form_searchDog">
       <input
         className="all_focus"
         type={"text"}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={eventHandler}
         value={value}
         placeholder={"Busca una raza por nombre"}
       />

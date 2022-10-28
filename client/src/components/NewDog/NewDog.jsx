@@ -59,7 +59,7 @@ const NewDog = () => {
         break;
     }
     setErrors(validate({ ...form, [name]: value }));
-    console.log(errors);
+
     setSwap(false);
   };
 

@@ -3,6 +3,12 @@
     ul{
         display: flex;
         align-items: center;
+        .currentPage{
+            font-weight: 600;
+                    background-color: $principa-color;
+                    color: $buttons-color;
+                    transform: scale(1.1);
+        }
         li{
             list-style: none;
             

@@ -76,6 +76,14 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         tempes: payload,
       };
+    case "FILTER_BY_ESPECIF_WEIGHT":
+      let filterByWeight = state.dogs.filter(
+        (e) => e.weightAverage > Number(payload)
+      );
+      return {
+        ...state,
+        dogs: filterByWeight,
+      };
     case CREATED_DOG:
       return {
         ...state,

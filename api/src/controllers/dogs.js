@@ -70,7 +70,7 @@ const bdDogs = async () => {
   let dataDb = await Dog.findAll({
     include: {
       model: Temper,
-      attributes: ["name"],
+      attributes: ["name"], //{name:"afectivo", id:1}
       through: {
         attributes: [],
       },
