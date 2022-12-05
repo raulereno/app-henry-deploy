@@ -7,8 +7,10 @@ import NavBar from "../NavBar/NavBar";
 import Pagination from "../Pagination/Pagination";
 import Search from "../Search/Search";
 import Cards from "./../Cards/Cards";
+import Swal from "sweetalert2";
 
 const Home = () => {
+  //TODO: ULTIMA CODEAD
   const [refresh, setRefresh] = useState("");
   const dispatch = useDispatch();
 
@@ -17,6 +19,29 @@ const Home = () => {
   useEffect(() => {
     if (!dogs.length) {
       dispatch(getDogs());
+      let timerInterval;
+      Swal.fire({
+        title: "El back se esta levantando!",
+        text: "The backend is going up",
+        html: "Esto se cerrara en <b></b> millisegundos.",
+        timer: 10000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
     }
   }, []);
 
