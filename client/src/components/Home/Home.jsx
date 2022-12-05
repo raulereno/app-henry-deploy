@@ -23,7 +23,7 @@ const Home = () => {
       Swal.fire({
         title: "El back se esta levantando!",
         text: "The backend is going up",
-        html: "Esto se cerrara en <b></b> millisegundos.",
+        html: "Esto se cerrara en <b></b> millisegundos...",
         timer: 10000,
         timerProgressBar: true,
         didOpen: () => {
