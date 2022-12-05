@@ -24,7 +24,7 @@ const Home = () => {
         title: "El back se esta levantando!",
         text: "The backend is going up",
         html: "Esto se cerrara en <b></b> millisegundos...",
-        timer: 10000,
+        timer: 4000,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
