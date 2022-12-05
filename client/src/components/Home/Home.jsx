@@ -21,6 +21,7 @@ const Home = () => {
       dispatch(getDogs());
       let timerInterval;
       Swal.fire({
+        position: "center-start",
         title: "El back se esta levantando!",
         text: "The backend is going up",
         html: "Esto se cerrara en <b></b> millisegundos...",
